@@ -22,17 +22,17 @@ const uint8_t Bitmaps2x5FixedMonoNum[] PROGMEM = {
 
 /* {offset, width, height, advance cursor, x offset, y offset} */
 const GFXglyph Glyphs2x5FixedMonoNum[] PROGMEM = {
-   { 0, 2, 5, 2, 0, -5 },   /* 0x30 zero */
-   { 2, 2, 5, 2, 0, -5 },   /* 0x31 one */
-   { 4, 2, 5, 2, 0, -5 },   /* 0x32 two */
-   { 6, 2, 5, 2, 0, -5 },   /* 0x33 three */
-   { 8, 2, 5, 2, 0, -5 },   /* 0x34 four */
-   { 10, 2, 5, 2, 0, -5 },  /* 0x35 five */
-   { 12, 2, 5, 2, 0, -5 },  /* 0x36 six */
-   { 14, 2, 5, 2, 0, -5 },  /* 0x37 seven */
-   { 16, 2, 5, 2, 0, -5 },  /* 0x38 eight */
-   { 18, 2, 5, 2, 0, -5 },  /* 0x39 nine */
-   { 20, 1, 5, 1, 0, -5 },  /* 0x40 : */
+   { 0, 2, 5, 3, 0, -5 },   /* 0x30 zero */
+   { 2, 2, 5, 3, 0, -5 },   /* 0x31 one */
+   { 4, 2, 5, 3, 0, -5 },   /* 0x32 two */
+   { 6, 2, 5, 3, 0, -5 },   /* 0x33 three */
+   { 8, 2, 5, 3, 0, -5 },   /* 0x34 four */
+   { 10, 2, 5, 3, 0, -5 },  /* 0x35 five */
+   { 12, 2, 5, 3, 0, -5 },  /* 0x36 six */
+   { 14, 2, 5, 3, 0, -5 },  /* 0x37 seven */
+   { 16, 2, 5, 3, 0, -5 },  /* 0x38 eight */
+   { 18, 2, 5, 3, 0, -5 },  /* 0x39 nine */
+   { 20, 1, 5, 2, 0, -5 },  /* 0x40 : */
 };
 
 const GFXfont Font2x5FixedMonoNum PROGMEM = {
