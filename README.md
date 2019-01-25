@@ -46,8 +46,10 @@ so far I've added the following ...
 
   * **Font2x5FixedMonoNum** contains number only in tiny format and a ':' and '.'
   * **Font3x7FixedMonoNum** contains thin font 2 sets of numbers only in 'rounder' or 'square' and 3 types of ':' see file for details
+  * **Font5x6Fixed** proportional spacing none bigger than 5x6
   * **Font5x7FixedMono** truly contained in 5x7 monospaced
-  * **Font3x7Fixed** proportion spacing for lower case and special characters none bigger than 5x7 bitmap
+  * **Font5x7Fixed** proportional spacing for lower case and special characters none bigger than 5x7
+
 
 more to follow soon ...
   
