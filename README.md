@@ -12,11 +12,13 @@ naming convention example:
   * **FontXxYFixedMono**
   * **FontXxY** 
 
-1. Size of font in pixels is **X** (horizontal) by **Y** (vertical) this is ‘approximate’ if not fixed
-2. Every font I describe as **Fixed** is bound within the dimensions I give e.g. 5x7 all available characters will fit in that space. If **Fixed** is omitted from name then the font will descend below line for lower case characters and possibly symbols 
-3. If **Mono** is specified it is a monospace font with fixed width for all characters and space. If **Mono** is omitted then the character widths and cursor advance are variable
+1. Size in pixels is **X** (horizontal) by **Y** (vertical) this is ‘approximate’ if not fixed
+2. **Fixed** is bound within the maximum dimensions I give e.g. 5x7 all available characters will fit in that space. If **Fixed** is omitted from name then the font will descend below line for lower case characters and possibly symbols 
+3. **Mono** is a monospace font with fixed width for all characters and space. If **Mono** is omitted then the character widths and cursor advance are variable
 4. If **Num** is specified then the font contains only numbers and possibly some punctuation (typically the ':' and '.') read the font to check whats in there as I've include a few alternate number sets in some fonts, edit these out if space is tight
 5. if **Upper** is specified then the font contains only the upper case A-Z to save space or possibly because lower case characters would be very poor
+6. if **Thin** is specified then the font is as narrow as pratical
+7. if **Bold** is specified then the font is roughly double stroke width
 
 ## Using Fonts with Adafruit GFX library
 
@@ -46,7 +48,7 @@ so far I've added the following ...
 
   * **Font2x5FixedMonoNum** contains number only in tiny format and a ':' and '.'
   * **Font3x7FixedMonoNum** contains thin font 2 sets of numbers only in 'rounder' or 'square' and 3 types of ':' see file for details
-  * **Font5x6Fixed** proportional spacing none bigger than 5x6
+  * **Font5x5Fixed** proportional spacing none bigger than 5x6
   * **Font5x7FixedMono** truly contained in 5x7 monospaced
   * **Font5x7Fixed** proportional spacing for lower case and special characters none bigger than 5x7
 
