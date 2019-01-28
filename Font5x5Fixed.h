@@ -122,6 +122,6 @@ const GFXglyph Org_01Glyphs[] PROGMEM = {
 const GFXfont Font5x5Fixed PROGMEM = {
   (uint8_t  *)Bitmaps5x5Fixed,
   (GFXglyph *)Glyphs5x5Fixed,
-  0x20, 0x7E, 7 };
+  0x20, 0x7E, 5 };
 
 // Approx. 943 bytes
