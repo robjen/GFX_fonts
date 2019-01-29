@@ -21,7 +21,7 @@ const uint8_t Bitmaps5x5Fixed[] PROGMEM = {
   0xED, 0xC0
 };
 
-const GFXglyph Org_01Glyphs[] PROGMEM = {
+const GFXglyph Glyphs5x5Fixed[] PROGMEM = {
   {     0,   0,   0,   3,    0,    1 }   // ' '
  ,{     0,   1,   5,   2,    0,   -4 }   // '!'
  ,{     1,   3,   1,   4,    0,   -4 }   // '"'
