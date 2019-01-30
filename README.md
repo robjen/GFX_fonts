@@ -46,13 +46,13 @@ Take a copy of my GFX_Font library and drop it in your arduino libraries directo
 
 so far I've added the following ...
 
-  * **Font2x5FixedMonoNum** contains number only in tiny format and a ':' and '.'
-  * **Font3x7FixedMonoNum** contains thin font 2 sets of numbers only in 'rounder' or 'square' and 3 types of ':' see file for details
+  * **Font2x5FixedNum** contains numbers only in 2x5 and a ':' and '.'
+  * **Font3x7FixedNum** contains numbers only in 'rounder' or 'square' and 3 types of ':' see file for details
   * **Font3x5FixedNum** contains 2 sets of numbers only in 'rounder' or 'square' ':' '.' see file for details
   * **Font4x7Fixed** proportional spacing none bigger than 4x7, most in 3x7
   * **Font4x5Fixed** proportional spacing none bigger than 4x5, most in 3x5
   * **Font5x5Fixed** proportional spacing none bigger than 5x5, most in 4x5
-  * **Font5x7FixedMono** truly contained in 5x7 monospaced
+  * **Font5x7FixedMono** truly contained in 5x7 monospaced all characters and symbols
   * **Font5x7Fixed** proportional spacing for lower case and special characters none bigger than 5x7
 
 
