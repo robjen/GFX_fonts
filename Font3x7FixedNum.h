@@ -7,7 +7,7 @@
 */
 
 
-const uint8_t Bitmaps3x7FixedMonoNum[] PROGMEM = {
+const uint8_t Bitmaps3x7FixedNum[] PROGMEM = {
 
 /* alternate squarer font */
   0xF6, 0xDB, 0x78, // 0
@@ -40,7 +40,7 @@ const uint8_t Bitmaps3x7FixedMonoNum[] PROGMEM = {
 
 
 /* {offset, width, height, advance cursor, x offset, y offset} */
-const GFXglyph Glyphs3x7FixedMonoNum[] PROGMEM = {
+const GFXglyph Glyphs3x7FixedNum[] PROGMEM = {
    { 0, 3, 7, 4, 0, -7 },   /* 0x26 zero */
    { 3, 3, 7, 4, 0, -7 },   /* 0x27 one */
    { 6, 3, 7, 4, 0, -7 },   /* 0x28 two */
@@ -66,7 +66,7 @@ const GFXglyph Glyphs3x7FixedMonoNum[] PROGMEM = {
    { 62, 1, 7, 2, 0, -7 },  /* 0x42 : */
 };
 
-const GFXfont Font3x7FixedMonoNum PROGMEM = {
-  (uint8_t  *)Bitmaps3x7FixedMonoNum,
-  (GFXglyph *)Glyphs3x7FixedMonoNum,
+const GFXfont Font3x7FixedNum PROGMEM = {
+  (uint8_t  *)Bitmaps3x7FixedNum,
+  (GFXglyph *)Glyphs3x7FixedNum,
   0x26, 0x42, 7};
