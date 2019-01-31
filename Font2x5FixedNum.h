@@ -5,7 +5,7 @@
 */
 
 
-const uint8_t Bitmaps2x5FixedMonoNum[] PROGMEM = {
+const uint8_t Bitmaps2x5FixedNum[] PROGMEM = {
   0xFF, 0xF0, // 0
   0x55, 0x40, // 1
   0xDE, 0xC0, // 2
@@ -21,7 +21,7 @@ const uint8_t Bitmaps2x5FixedMonoNum[] PROGMEM = {
 
 
 /* {offset, width, height, advance cursor, x offset, y offset} */
-const GFXglyph Glyphs2x5FixedMonoNum[] PROGMEM = {
+const GFXglyph Glyphs2x5FixedNum[] PROGMEM = {
    { 0, 2, 5, 3, 0, -5 },   /* 0x30 zero */
    { 2, 2, 5, 3, 0, -5 },   /* 0x31 one */
    { 4, 2, 5, 3, 0, -5 },   /* 0x32 two */
@@ -35,7 +35,7 @@ const GFXglyph Glyphs2x5FixedMonoNum[] PROGMEM = {
    { 20, 1, 5, 2, 0, -5 },  /* 0x40 : */
 };
 
-const GFXfont Font2x5FixedMonoNum PROGMEM = {
-  (uint8_t  *)Bitmaps2x5FixedMonoNum,
-  (GFXglyph *)Glyphs2x5FixedMonoNum,
+const GFXfont Font2x5FixedNum PROGMEM = {
+  (uint8_t  *)Bitmaps2x5FixedNum,
+  (GFXglyph *)Glyphs2x5FixedNum,
   0x30, 0x40, 5};
