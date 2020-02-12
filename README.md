@@ -6,17 +6,18 @@ I got sick of searching for and tweaking fonts for various projects so I'm bring
 Also annoys me that 5x7 inbuilt font in Adafruit is **not** 5x7 as I would understand it i.e. it drops below the line, not useful when I only have a 7 row high flip dot display so I needed to fix that !
 
 naming convention example:
-  * **FontXxYFixedMonoNum** 
-  * **FontXxYFixedMonoNum** 
-  * **FontXxYFixedMonoUpper**
-  * **FontXxYFixedMono**
-  * **FontXxY** 
+  * **FontXxYFixedNum**  - only continas numbers (possible special characters, read the file to check) max size X by Y
+  * **FontXxYFixedMono**  - mono spaced all characters including space are same width X by Y
+  * **FontXxYFixedMonoUpper**  - mono spaced but only upper case characters available
+  * **FontXxY**  - not a fixed size may decend below the line common size is X by Y
+
+  * **FontXxY[Fixed:Mono:Num:Upper:Thin:Bold]**
 
 1. Size in pixels is **X** (horizontal) by **Y** (vertical) this is ‘approximate’ if not fixed
 2. **Fixed** is bound within the maximum dimensions given e.g. 5x7 all available characters will fit in that space. If **Fixed** is omitted from name then the font will descend below line for lower case characters and possibly symbols.
-3. **Mono** is a monospace font with fixed width for all characters and space. If **Mono** is omitted then the character widths and cursor advance are variable as required.
-4. If **Num** is specified then the font contains only numbers and possibly some punctuation (typically the ':' and '.') read the font file to check whats in there as I may have include a few alternate number sets in some fonts, edit these out if space is tight for you.
-5. if **Upper** is specified then the font contains only the upper case A-Z to save space or possibly because lower case characters would be very poorly rendered in the size
+3. **Mono** is a monospace font with fixed width for all characters and space. If **Mono** is omitted then the character widths and cursor advance are variable/proportional as required.
+4. If **Num** is specified then the font contains only numbers and possibly some punctuation (typically the ':' and '.') read the font file to check whats in there as I may have include a few alternate number sets in some fonts.
+5. if **Upper** is specified then the font contains only the upper case A-Z to save space or possibly because lower case characters would be very poorly rendered in the space
 6. if **Thin** is specified then the font is as narrow as pratical
 7. if **Bold** is specified then the font is roughly double stroke width
 
