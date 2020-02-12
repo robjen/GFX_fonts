@@ -1,4 +1,13 @@
-const uint8_t Bitmaps3x5FixedNum[] PROGMEM = {
+/**
+*  tiny font just for numbers 3x7
+*  2 styles 'square ascii-10' and 'round ascii'
+*  : ; and . (ascii <)
+*
+* Author Rob Jennings
+*/
+
+
+const uint8_t Font3x5FixedNumBitmaps[] PROGMEM = {
   0xF6, 0xDE, 0x00, 0x49, 0x24, 0x00, 0xE7, 0xCE, 0x00, 0xE7, 0x9E, 0x00,
   0xB7, 0x92, 0x00, 0xF3, 0x9E, 0x00, 0xF3, 0xDE, 0x00, 0xE4, 0x92, 0x00,
   0xF7, 0xDE, 0x00, 0xF7, 0x9E, 0x00, 0x76, 0xDC, 0x00, 0x59, 0x2E, 0x00,
@@ -7,7 +16,7 @@ const uint8_t Bitmaps3x5FixedNum[] PROGMEM = {
   0xA0, 0xB0, 0x80
 };
 
-const GFXglyph Glyphs3x5FixedNum[] PROGMEM = {
+const GFXglyph Font3x5FixedNumGlyphs[] PROGMEM = {
   {     0,   3,   5,   4,    0,   -5 }   // '0 square'
  ,{     3,   3,   5,   4,    0,   -5 }   // '1'
  ,{     6,   3,   5,   4,    0,   -5 }   // '2'
@@ -34,6 +43,6 @@ const GFXglyph Glyphs3x5FixedNum[] PROGMEM = {
 };
 
 const GFXfont Font3x5FixedNum PROGMEM = {
-  (uint8_t  *)Bitmaps3x5FixedNum,
-  (GFXglyph *)Glyphs3x5FixedNum,
-  0x26, 0x42, 5};
+  (uint8_t  *)Font3x5FixedNumBitmaps,
+  (GFXglyph *)Font3x5FixedNumGlyphs,
+  0x26, 0x3C, 5};
