@@ -138,7 +138,7 @@ const GFXglyph FixedMono5x7Glyphs[] PROGMEM = {
  ,{   382,   5,   2,   6,    0,   -4 }   // '~'
 };
 
-const GFXfont FixedMono5x7Font PROGMEM = {
+const GFXfont Font5x7FixedMono PROGMEM = {
 (uint8_t  *)FixedMono5x7Bitmaps,
 (GFXglyph *)FixedMono5x7Glyphs,
 0x20, 0x7E, 7};
