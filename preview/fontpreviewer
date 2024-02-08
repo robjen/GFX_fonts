@@ -1,0 +1,162 @@
+#!/usr/bin/java --source 11
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+
+public class FontPreviewer {
+  public static void main(String[] args) throws IOException {
+    final BufferedImage bufferedImage = new BufferedImage(600, 260, BufferedImage.TYPE_BYTE_GRAY);
+    final Graphics graphics = bufferedImage.getGraphics();
+    graphics.setFont(new Font("DejaVu Sans", Font.PLAIN, 9));
+    final List<Path> files = Files.list(Paths.get("../GFX_fonts"))
+        .filter(f -> f.toString().endsWith(".h"))
+        .collect(Collectors.toList());
+    System.out.println(files);
+    for (int i = 0; i < files.size(); i++) {
+      Path file = files.get(i);
+      drawFont(graphics, file, 30 + 30 * i);
+    }
+    File outputfile = new File("preview.png");
+    ImageIO.write(bufferedImage, "png", outputfile);
+  }
+
+  private static void drawFont(Graphics graphics, Path filename, int fontLineYoffset) throws IOException {
+    System.out.println(filename);
+    graphics.drawString(filename.getFileName().toString(), 0, fontLineYoffset - 10);
+    final List<String> lines = Files.readAllLines(filename);
+    StringBuilder bitmapsb = new StringBuilder();
+    List<Glyph> glyphs = new ArrayList<>();
+    boolean readBitmap = false;
+    boolean readGlyphs = false;
+    for (String line : lines) {
+      if (readBitmap) {
+        if (line.contains("0x")) {
+          bitmapsb.append(line
+              .replace("0x", "")
+              .replace(" ", "")
+              .replaceAll("//.*","")
+              .replaceAll("/\\*.*\\*/","")
+          );
+        } else if (line.contains("};")) {
+          readBitmap = false;
+        }
+      }
+      if (readGlyphs) {
+        if (line.contains("};")) {
+          readGlyphs = false;
+        } else {
+          glyphs.add(new Glyph(line
+              .replace(",{","")
+              .replace("{", "")
+              .replaceAll("}.*","")
+                  .replace(" ","")
+              .split(","))
+          );
+        }
+      }
+      if (line.startsWith("const uint8_t F")) {
+        System.out.println("Reading bitmap...");
+        readBitmap = true;
+      }
+      if (line.startsWith("const GFXglyph ")) {
+        System.out.println("Reading GFXglyph...");
+        readGlyphs = true;
+      }
+    }
+    System.out.println(bitmapsb);
+    final List<Integer> bitmap = Arrays.stream(bitmapsb.toString().split(","))
+        .map(b -> new BigInteger(b, 16).intValue())
+        .collect(Collectors.toList());
+
+    int currentX = 0;
+    for (Glyph glyph : glyphs) {
+      char bitPosition = 0;
+      int i = glyph.getBitmapOffset();
+      for (int y = 0; y < glyph.getHeight(); y++) {
+        for (int x = 0; x < glyph.getWidth(); x++) {
+          final boolean draw = (bitmap.get(i) & 1 << (7 - bitPosition)) > 0;
+          if (draw) {
+            drawPixel(graphics, currentX + x + glyph.getxOffset(), y + glyph.getyOffset() + fontLineYoffset);
+          }
+          if (bitPosition == 7) {
+            bitPosition = 0;
+            i++;
+          } else {
+            bitPosition++;
+          }
+        }
+      }
+      currentX += glyph.getxAdvance();
+    }
+  }
+
+  private static void drawPixel(Graphics graphics, int x, int y) {
+    graphics.drawLine(x, y, x, y);
+  }
+
+  static class Glyph {
+    int bitmapOffset;
+    int width;
+    int height;
+    int xAdvance;
+    int xOffset;
+    int yOffset;
+
+    public Glyph(String[] glyph) {
+      bitmapOffset = Integer.parseInt(glyph[0]);
+      width = Integer.parseInt(glyph[1]);
+      height = Integer.parseInt(glyph[2]);
+      xAdvance = Integer.parseInt(glyph[3]);
+      xOffset = Integer.parseInt(glyph[4]);
+      yOffset = Integer.parseInt(glyph[5]);
+    }
+
+    public int getBitmapOffset() {
+      return bitmapOffset;
+    }
+
+    public int getWidth() {
+      return width;
+    }
+
+    public int getHeight() {
+      return height;
+    }
+
+    public int getxAdvance() {
+      return xAdvance;
+    }
+
+    public int getxOffset() {
+      return xOffset;
+    }
+
+    public int getyOffset() {
+      return yOffset;
+    }
+
+    @Override
+    public String toString() {
+      return new StringJoiner(", ", Glyph.class.getSimpleName() + "[", "]")
+          .add("bitmapOffset=" + bitmapOffset)
+          .add("width=" + width)
+          .add("height=" + height)
+          .add("xAdvance=" + xAdvance)
+          .add("xOffset=" + xOffset)
+          .add("yOffset=" + yOffset)
+          .toString();
+    }
+  }
+}
